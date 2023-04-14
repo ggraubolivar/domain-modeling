@@ -1,3 +1,5 @@
+-- FINISHED CORRECTLY
+
 -- DROP TABLES (RECREATE)
 
 DROP TABLE IF EXISTS users;
@@ -19,7 +21,7 @@ CREATE TABLE users (
 CREATE TABLE posts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     image_url TEXT,
-    posted_at TEXT,
+    time TEXT,
     user_id INTEGER
 );
 
