@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS activities;
 DROP TABLE IF EXISTS companies;	
 DROP TABLE IF EXISTS salespeople;
 DROP TABLE IF EXISTS industries;
-DROP TABLE IF EXISTS industry_memberships;
+DROP TABLE IF EXISTS industry_relationships;
 
 -- CREATE TABLES
 
@@ -32,9 +32,7 @@ CREATE TABLE activities	(
 
 CREATE TABLE companies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    industry_id INTEGER,
-    contact_id INTEGER
+    name TEXT
     );
 
 CREATE TABLE salespeople (
@@ -49,7 +47,7 @@ CREATE TABLE industries (
     name TEXT
     );
 
-CREATE TABLE industry_memberships (
+CREATE TABLE industry_relationships (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     company_id INTEGER,
     industry_id INTEGER
