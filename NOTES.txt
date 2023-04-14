@@ -1,0 +1,7 @@
+(1) Define the domain model according to each user story:
+    - users, students, companies, assets, etc.
+(2) Establish the kind of relationship between them:
+    - 1:m, m:1, or m:m.
+(3) For m:m relationships, open up a join model to connect them
+(4) Add an id of the model which is the foreign key 
+    - e.g., in a 1:m where company and contact are the models, write company_id within contact.

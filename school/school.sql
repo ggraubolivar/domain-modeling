@@ -1,3 +1,7 @@
+-- FINISHED CORRECTLY
+.mode columns
+.headers on
+
 -- Drops existing tables, so we start fresh with each
 -- run of this script
 DROP TABLE IF EXISTS students;

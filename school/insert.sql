@@ -1,23 +1,32 @@
+-- Import csv's as tables.
+
 .mode csv
 .import courses.csv  courses_data_raw
 .import students.csv students_data_raw
 .import teachers.csv teachers_data_raw
-.import sections.csv students_data_raw
+.import sections.csv sections_data_raw
 
-INSERT INTO students (
-    first_name,
-    last_name, 
-    email, 
-    phone_number
-)
+-- Fill in students
 
+INSERT INTO students (id, first_name, last_name, email, phone_number)
+SELECT id, first_name, last_name, email, phone_number
+FROM students_data_raw;
+DROP TABLE IF EXISTS students_data_raw;
 
-INSERT INTO listings (id, url, name, body, host_name, host_since, 
-                      neighborhood, property_type, accommodates, bathrooms, bedrooms, 
-                      price, minimum_nights, maximum_nights, available)
-SELECT id, listing_url, name, description, host_name, host_since,
-       neighbourhood_cleansed, property_type, accommodates, bathrooms, bedrooms,
-       price, minimum_nights, maximum_nights, has_availability
-FROM listings_data_raw;
+-- Fill in teachers
 
-DROP TABLE listings_data_raw;
+INSERT INTO teachers (id, first_name, last_name, bio)
+SELECT id, first_name, last_name, bio FROM teachers_data_raw;
+DROP TABLE IF EXISTS teachers_data_raw;
+
+-- Fill in courses
+
+INSERT INTO courses (id, name, description)
+SELECT id, name, description FROM courses_data_raw;
+DROP TABLE IF EXISTS courses_data_raw;
+
+-- Fill in sections
+
+INSERT INTO sections (id, time, course_id, teacher_id)
+SELECT id, time, course_id, teacher_id FROM sections_data_raw;
+DROP TABLE IF EXISTS sections_data_raw;
